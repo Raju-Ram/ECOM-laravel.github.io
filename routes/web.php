@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\http\Controllers\MasterController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\productController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +15,14 @@ use App\http\Controllers\MasterController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/login', function () {
+    return view('login');
+});
 
 
-Route::view("/","login");
 
-Route::get('admin',[MasterController::class,'index']);
+
+Route::post("/login",[UserController::class,'login']);
+Route::get("/",[productController::class,'index']);
 
 
